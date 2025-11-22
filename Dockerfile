@@ -1,6 +1,10 @@
-FROM openjdk:11
-MAINTAINER "Ashok Bollepalli <797979>"
-COPY target/spring-boot-docker-app.jar  /usr/app/
-WORKDIR /usr/app/
+FROM openjdk:17-jdk
+
+WORKDIR /usr/app
+
+COPY target/spring-boot-docker-app.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "spring-boot-docker-app.jar"]
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
